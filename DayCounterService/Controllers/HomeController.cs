@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Ajax;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace DayCounterService.Controllers
@@ -20,5 +21,20 @@ namespace DayCounterService.Controllers
 
 			return View();
 		}
+
+		public ActionResult List()
+		{
+			var client = new MongoClient("mongodb://localhost:27017");
+			var database = client.GetDatabase("demo");
+			var collection = database.GetCollection<User>("user");
+
+			collection.InsertOne(new User() { Name = "FDB", Age = 30 });
+
+			var list = collection.Find(u => u.Name == "FDB").ToList();
+
+			return View(list);
+		}
 	}
+
+
 }
