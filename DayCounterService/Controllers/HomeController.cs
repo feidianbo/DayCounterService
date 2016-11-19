@@ -18,8 +18,6 @@ namespace DayCounterService.Controllers
 			ViewData["Version"] = mvcName.Version.Major + "." + mvcName.Version.Minor;
 			ViewData["Runtime"] = isMono ? "Mono" : ".NET";
 
-			//MongoDB.Driver.MongoCollection
-
 			return View();
 		}
 	}
