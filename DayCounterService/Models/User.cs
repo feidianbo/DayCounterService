@@ -9,10 +9,20 @@ namespace DayCounterService
 	{
 		public User()
 		{
-			
+
 		}
 		[BsonId]
 		public MongoDB.Bson.ObjectId _id { get; set; }
+
+
+		public string Id
+		{
+			get { return _id.ToString(); }
+			set
+			{
+				_id = ObjectId.Parse(value);
+			}
+		}
 
 		public String Name { get; set; }
 		public int Age { get; set; }

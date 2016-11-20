@@ -1,21 +1,9 @@
 ﻿@model List<DayCounterService.User>
+@{Layout = "~/Views/Shared/_Layout.cshtml";}
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>List</title>
-</head>
-<body>
-		<ul>
+	<ul>
     @foreach (var user in Model)
     {
         <li>@user.Name</li>
     }
 </ul>
-</body>
-</html>
-

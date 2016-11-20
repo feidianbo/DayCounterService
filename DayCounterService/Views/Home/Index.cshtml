@@ -1,1 +1,8 @@
 ﻿<h2>欢迎使用 MVC @ViewData["Version"] on @ViewData["Runtime"]!</h2>
+<p>@ShowTime() </p>
+@functions{
+	public IHtmlString ShowTime()
+	{
+	    return  new HtmlString(DateTime.Now.ToString());
+	}
+}
